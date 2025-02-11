@@ -22,7 +22,8 @@ for msg in mb:
       print('Skipping - already done!')
       continue
     done.add(key)
-    fnam = Path(date.isoformat() + '_' + part.get_filename())
+    date_str = date.isoformat().replace('-', '').replace(':', '')
+    fnam = Path(date_str + '_' + part.get_filename())
     if Path('images').joinpath(fnam).exists():
       clash_counter = 1
       while Path('images').joinpath(fnam.stem + '_' + str(clash_counter) + fnam.suffix).exists():
